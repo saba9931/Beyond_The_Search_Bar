@@ -1,0 +1,143 @@
+{
+  "counts": {
+    "branded_n": 16,
+    "primary_n": 222,
+    "rows_excluded": 0,
+    "rows_logged": 238,
+    "rows_usable": 238,
+    "runs_planned": 600
+  },
+  "data_version": "data-v0.9",
+  "insight_log": [
+    {
+      "confidence": "High: large gap, Nykaa ahead on 5 of 5 engines, also in single fresh chats alone (Fig 9)",
+      "figure": "Figure 4",
+      "hypothesis": "H1",
+      "insight (evidence)": "Sephora named in 10% vs Nykaa 32% of 222 unbranded answers; 53 name only Nykaa, 6 only Sephora (McNemar p<0.001)",
+      "so what for the decision": "Nykaa is named about 3.0 times as often as Sephora India. The first goal is to be named at all in product answers, not to win the retailer comparison."
+    },
+    {
+      "confidence": "Medium: only 12 retailer-question answers",
+      "figure": "Figure 5",
+      "hypothesis": "H2",
+      "insight (evidence)": "Sephora mention rate by question type: product question 6% (n=210), retailer question 83% (n=12) (Fisher p<0.001)",
+      "so what for the decision": "Sephora shows up when shoppers ask WHERE to buy and rarely when they ask WHAT to buy. Fixes should target product-answer visibility (product pages, feeds, reviews), not brand pages."
+    },
+    {
+      "confidence": "Medium: engine cells are small (19 to 64) and collection method differs by engine",
+      "figure": "Figure 6",
+      "hypothesis": "H3",
+      "insight (evidence)": "Sephora mention rate by engine: chatgpt 22% (n=54), claude 9% (n=54), gemini 5% (n=64), google_ai_mode 3% (n=31), perplexity 11% (n=19) (chi-square p=0.016)",
+      "so what for the decision": "Engines differ. chatgpt names Sephora most; google_ai_mode least. Weight the fixes by engine usage (see the benchmarking note) and re-check on the updated data."
+    },
+    {
+      "confidence": "Low: 20 to 40 answers per category, wide intervals",
+      "figure": "Figure 7",
+      "hypothesis": "H4",
+      "insight (evidence)": "Sephora mention rate by category: acne_skincare 0%, foundation 17%, fragrance 8%, haircare 3%, lipstick 6%, retailer 83%, sunscreen 3%. Product categories only: chi-square p=0.058.",
+      "so what for the decision": "Apart from the retailer category, Sephora is weak across product categories, including its core ones. Treat it as a general product-answer problem until more data shows a category pattern."
+    },
+    {
+      "confidence": "Medium: depends on which engines show links at all",
+      "figure": "Table in H5",
+      "hypothesis": "H5",
+      "insight (evidence)": "Among 74 answers that link to a retailer: Sephora linked in 23%, Nykaa in 74% (McNemar p<0.001)",
+      "so what for the decision": "When engines send shoppers to a retailer, it is usually Nykaa. This is the traffic side of the visibility gap."
+    },
+    {
+      "confidence": "Medium: few repeat pairs per engine",
+      "figure": "Figure 8",
+      "hypothesis": "H6",
+      "insight (evidence)": "Mean overlap of cited sites across repeat runs: 0.30 (chatgpt 0.26, claude 0.36, gemini 0.05, google_ai_mode 0.20, perplexity 0.80) over 68 prompt-engine pairs",
+      "so what for the decision": "One answer is not the truth. Cited sites change between runs, so any monitor needs several runs per prompt."
+    },
+    {
+      "confidence": "High (a fact about our sample)",
+      "figure": "Figure 1",
+      "hypothesis": "Bias",
+      "insight (evidence)": "Engine mix collected: gemini 29%, chatgpt 24%, claude 24%, google_ai_mode 14%, perplexity 9%. Collection method: batched_chat 141, single_chat 57, api 40.",
+      "so what for the decision": "Mix is closer to the plan than before but Saurav's rows and part of Agnik's Google AI Mode rows are still to come. Results are re-run when the data is updated."
+    },
+    {
+      "confidence": "Medium-high",
+      "figure": "Figure 9",
+      "hypothesis": "Robust",
+      "insight (evidence)": "Single fresh chats only (n=53): Sephora 13% vs Nykaa 55% (McNemar p<0.001); all genuine rows: Sephora 10% vs Nykaa 32%",
+      "so what for the decision": "The direction does not depend on the collection method. Collection method has no significant effect on Sephora mentions (p=0.67; inside ChatGPT alone p=1.0), so batched and API answers stay in. Method is kept as a control variable in D4."
+    }
+  ],
+  "tests": {
+    "H1": {
+      "comp_rate": 0.315315,
+      "focal_rate": 0.103604,
+      "n": 222,
+      "only_comp": 53,
+      "only_focal": 6,
+      "p": 0.0
+    },
+    "H2": {
+      "chi": [
+        64.669046,
+        0.0,
+        1
+      ],
+      "fisher_odds": 75.769231,
+      "fisher_p": 0.0,
+      "n_retailer_q": 12
+    },
+    "H3": {
+      "chi": [
+        12.169241,
+        0.016136,
+        4
+      ]
+    },
+    "H4": {
+      "chi": [
+        79.411377,
+        0.0,
+        6
+      ],
+      "chi_product_only": [
+        10.671374,
+        0.058299,
+        5
+      ]
+    },
+    "H5": {
+      "comp_rate": 0.743243,
+      "focal_rate": 0.22973,
+      "n_linked": 74,
+      "n_primary": 222,
+      "p": 0.0
+    },
+    "H6": {
+      "by_engine": {
+        "chatgpt": 0.264134,
+        "claude": 0.355493,
+        "gemini": 0.047407,
+        "google_ai_mode": 0.2,
+        "perplexity": 0.8
+      },
+      "mean": 0.299174,
+      "n_pairs": 68
+    },
+    "bias": {
+      "collection_method": {
+        "chi2": 0.794255,
+        "p": 0.672248
+      },
+      "collector": {
+        "chi2": 2.551485,
+        "p": 0.110191
+      },
+      "engine_method_fisher_p": 1.0
+    },
+    "robust": {
+      "comp_rate": 0.54717,
+      "focal_rate": 0.132075,
+      "n_single": 53,
+      "p": 3e-06
+    }
+  }
+}

@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BEYOND THE SEARCH BAR — Definitive Project Charter & Roadmap</title>
+<style>
+:root{--ink:#242333;--muted:#626276;--purple:#574276;--purple2:#8975aa;--pale:#f2eef7;--line:#e3deea;--green:#edf5ef;--amber:#fbf4e4}
+*{box-sizing:border-box}body{margin:0;background:#f7f6f9;color:var(--ink);font:15px/1.58 Arial,Helvetica,sans-serif}
+main{max-width:1080px;margin:28px auto;padding:0 22px}header{background:linear-gradient(130deg,#2e2541,#715b91);color:#fff;padding:42px;border-radius:16px}
+.kicker{font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:.85}h1{font-size:36px;line-height:1.15;margin:10px 0}header .lead{font-size:18px;color:#eee8f6;max-width:820px}header .meta{font-size:13px;color:#e4dcef;margin-top:24px}
+nav,section{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px 28px;margin:17px 0}
+nav a{color:var(--purple);text-decoration:none;display:inline-block;margin:5px 13px 5px 0;font-size:13px}
+h2{font-size:22px;color:var(--purple);margin:0 0 13px}h3{font-size:16px;margin:19px 0 7px}p{margin:7px 0}
+table{border-collapse:collapse;width:100%;margin:11px 0;font-size:13px}th,td{border:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top}th{background:var(--pale);color:#3b2d55}
+ul,ol{padding-left:22px;margin:8px 0}li{margin:5px 0}
+.callout{background:var(--pale);border-left:4px solid var(--purple2);padding:13px 16px;border-radius:7px;margin:13px 0}
+.note{background:var(--amber);padding:12px 15px;border-radius:7px;margin:12px 0}
+.good{background:var(--green);padding:12px 15px;border-radius:7px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.tile{border:1px solid var(--line);border-radius:9px;padding:14px}.tile b{color:var(--purple)}
+pre{white-space:pre-wrap;background:#242232;color:#f5f2fa;padding:16px;border-radius:9px;font-size:12px;line-height:1.5;overflow-wrap:anywhere}
+.small{font-size:12px;color:var(--muted)}.pill{display:inline-block;background:#eee8f6;color:#493565;border-radius:20px;padding:3px 9px;font-size:11px;margin:2px}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
+@media(max-width:700px){main{padding:0 12px}header{padding:27px 23px}h1{font-size:28px}section,nav{padding:19px 16px}.grid{grid-template-columns:1fr}table{display:block;overflow-x:auto}}
+@media print{body{background:white}main{max-width:none;margin:0;padding:0}nav{display:none}section,header{break-inside:avoid;box-shadow:none}section{margin:9px 0;padding:17px}}
+</style></head>
+<body><main>
+<header>
+<div class="kicker">Analytics Capstone · Definitive working baseline · 30 October 2026</div>
+<h1>BEYOND THE SEARCH BAR</h1>
+<div class="lead"><b>AI Discovery Intelligence Platform</b><br>An agentic GEO intelligence and optimisation platform to help businesses understand, improve and evaluate how their brands and products are represented in AI-generated answers.</div>
+<div class="meta">Confirmed direction: FULL SCOPE + INTEGRATED DEVELOPMENT · Pilot: Sephora India · Benchmarks: Nykaa and Tira · Team size: 3</div>
+</header>
+<nav><b>Contents</b><br>
+<a href="#decision">Frozen decisions</a><a href="#charter">Charter</a><a href="#product">Six engines</a><a href="#outcomes">Business outcomes</a><a href="#academic">Academic deliverables</a><a href="#literature">Literature review</a><a href="#architecture">Architecture</a><a href="#stack">Technology stack</a><a href="#data">Data design</a><a href="#roadmap">Roadmap</a><a href="#agile">Agile model</a><a href="#evaluation">Evaluation</a><a href="#risks">Risks & feasibility</a><a href="#start">Start here</a></nav>
+
+<section id="decision"><h2>1. Confirmed project decisions</h2>
+<table><tr><th>Decision</th><th>Working baseline</th></tr>
+<tr><td>Project</td><td>BEYOND THE SEARCH BAR</td></tr>
+<tr><td>Product identity</td><td>AI Discovery Intelligence Platform</td></tr>
+<tr><td>Scope</td><td><b>Full ambitious platform:</b> all six engines are part of the product vision.</td></tr>
+<tr><td>Development approach</td><td><b>Integrated development:</b> build one module at a time and connect it continuously to the working product.</td></tr>
+<tr><td>Pilot</td><td>Beauty and skincare discovery in India.</td></tr>
+<tr><td>Pilot brand / benchmarks</td><td>Sephora India / Nykaa and Tira. Purplle is excluded.</td></tr>
+<tr><td>Academic requirements</td><td>XIME capstone D1–D7 and E1–E2, plus the faculty-required literature review.</td></tr>
+<tr><td>Agile approach</td><td>Lightweight Scrum-inspired workflow using GitHub Issues and Projects, short iterations, review and retrospective.</td></tr></table>
+<div class="good"><b>Development rule:</b> Full product ambition does not mean every feature must be production-grade. We will demonstrate a genuinely integrated, working vertical slice, then add advanced capabilities where time, data, access and budget permit.</div>
+</section>
+
+<section id="charter"><h2>2. Project charter</h2>
+<h3>Problem statement</h3>
+<p>Businesses increasingly need to understand how generative AI platforms discover, describe and recommend their brands and products. However, they often lack an integrated intelligence system to measure AI-generated brand visibility, evaluate product representation and source credibility, identify discoverability opportunities, and translate findings into actionable content improvements.</p>
+<p><b>BEYOND THE SEARCH BAR</b> aims to develop an AI-powered, agentic GEO Intelligence Platform that integrates AI discovery monitoring, visibility diagnostics, opportunity identification, content optimisation, experimentation and autonomous workflow orchestration to help businesses improve their representation in AI-generated answers.</p>
+<table><tr><th>Charter element</th><th>Definition</th></tr>
+<tr><td>Purpose</td><td>Build a configurable platform that measures how selected AI systems represent a brand, diagnoses observable issues and opportunities, recommends evidence-grounded actions and helps evaluate changes.</td></tr>
+<tr><td>Primary users</td><td>Brand managers, digital marketing teams, e-commerce teams, SEO/GEO specialists and strategy teams.</td></tr>
+<tr><td>First use case</td><td>Assess beauty and skincare discovery queries in India for Sephora India and compare observations with Nykaa and Tira.</td></tr>
+<tr><td>Core value</td><td>Connect discovery measurement to diagnosis, recommendations, content action and experimentation in one workflow.</td></tr>
+<tr><td>Expected capstone outcome</td><td>Working integrated prototype, documented data/AI pipeline, evaluation evidence, agent workflow, business recommendations, literature review and final academic submissions.</td></tr>
+<tr><td>Success criteria</td><td>A user can configure a brand assessment, collect traceable AI responses, inspect visibility/accuracy/source signals, receive evidence-linked opportunities and content suggestions, and run or compare a repeat/variant assessment.</td></tr></table>
+<div class="note"><b>Evidence boundaries:</b> We do not assume Sephora has a visibility gap, do not claim company collaboration, and cannot inspect private AI ranking algorithms. Public-prompt observations are a sample, not the whole market. Before/after changes are not causal proof unless the experiment design supports that conclusion.</div>
+</section>
+
+<section id="product"><h2>3. The six product engines</h2>
+<div class="grid">
+<div class="tile"><b>1. AI Discovery Intelligence Engine</b><p>Manages the prompt library, selected AI providers, assessment runs, response collection, metadata and citation capture. Creates the evidence base for all downstream modules.</p><p><span class="pill">Prompt orchestration</span><span class="pill">Provider APIs</span><span class="pill">Response capture</span></p></div>
+<div class="tile"><b>2. AI Visibility Diagnostic Engine</b><p>Measures brand/product mentions, recommendation position, category coverage, competitor presence, product-detail accuracy and source/citation patterns. Flags observable gaps and inconsistencies.</p><p><span class="pill">NLP</span><span class="pill">Metrics</span><span class="pill">Benchmarking</span></p></div>
+<div class="tile"><b>3. GEO Opportunity & Recommendation Engine</b><p>Turns diagnostic evidence into prioritised opportunities, such as missing product information, inconsistent public details, incomplete FAQs or weak supporting source coverage.</p><p><span class="pill">Opportunity scoring</span><span class="pill">Evidence ranking</span></p></div>
+<div class="tile"><b>4. AI Content Optimisation Copilot</b><p>Uses verified brand information and diagnostic findings to draft product descriptions, FAQs, structured content and content briefs. Shows supporting evidence and requires human approval.</p><p><span class="pill">RAG</span><span class="pill">LLM generation</span><span class="pill">Human review</span></p></div>
+<div class="tile"><b>5. AI Visibility Experimentation Lab</b><p>Manages content variants, repeat prompt assessments and before/after comparisons. Helps assess whether observed changes are consistent. Controlled demo-site experiments can be used if real-brand content cannot be changed.</p><p><span class="pill">Experiments</span><span class="pill">Versioning</span><span class="pill">Monitoring</span></p></div>
+<div class="tile"><b>6. Autonomous GEO Intelligence Agent</b><p>Coordinates the workflow by calling the other engines, checking task state, preparing reports, proposing follow-up actions and pausing for human approval at important steps.</p><p><span class="pill">LangGraph</span><span class="pill">Tool calling</span><span class="pill">Human-in-loop</span></p></div>
+</div>
+<h3>Six product-level deliverables</h3>
+<ol><li>Working GEO Intelligence Platform — one interface to configure and run assessments.</li><li>AI Visibility Diagnostic System — measurable visibility, accuracy and source intelligence.</li><li>GEO Recommendation Copilot — prioritised, evidence-grounded actions and content drafts.</li><li>Experimentation and Monitoring Framework — repeatable runs, variants and comparisons.</li><li>Industry-Agnostic Configuration Layer — configurable brand, market, category, competitor and prompt settings.</li><li>Technical and Business Documentation — architecture, data dictionary, evaluation, limitations, deployment guide and business case.</li></ol>
+<p class="small">The six engines describe product capabilities. The six deliverables describe the product outputs we intend to demonstrate and hand over.</p>
+</section>
+
+<section id="outcomes"><h2>4. Business outcomes we aim to provide</h2>
+<table><tr><th>Business question</th><th>Platform output</th><th>How it can be used</th></tr>
+<tr><td>Is the brand appearing in relevant AI answers?</td><td>Brand mention rate, category coverage and recommendation position across the defined prompt panel.</td><td>Understand observed AI representation for selected queries and providers.</td></tr>
+<tr><td>How does the brand compare?</td><td>Competitor visibility and product/category comparisons.</td><td>Identify relative strengths and areas to investigate.</td></tr>
+<tr><td>Are AI answers describing products correctly?</td><td>Product attribute comparison against approved reference data.</td><td>Spot factual mismatches and missing details.</td></tr>
+<tr><td>What sources support AI answers?</td><td>Citation/domain frequency, diversity and relevance review.</td><td>Understand which public sources are visible in the answer evidence.</td></tr>
+<tr><td>What should the business improve?</td><td>Ranked opportunities with evidence, confidence, effort and validation approach.</td><td>Prioritise content and information improvements.</td></tr>
+<tr><td>Did a change make a difference?</td><td>Repeated assessments and content-variant comparisons.</td><td>Evaluate observed changes without overstating causality.</td></tr>
+</table>
+<div class="callout"><b>Three dimensions must remain distinct:</b> visibility (is the brand present?), accuracy (is the information correct?) and trust/source quality (is the answer supported by relevant, credible evidence?). A high mention rate does not automatically mean accurate or trustworthy representation.</div>
+</section>
+
+<section id="academic"><h2>5. Mandatory academic deliverables</h2>
+<p>These course requirements remain mandatory alongside the six product engines. The mapping below follows the XIME capstone course outline reviewed for this project.</p>
+<table><tr><th>Course deliverable</th><th>What is expected</th><th>Project-specific evidence/output</th><th>Dependency</th></tr>
+<tr><td><b>D1 · M1 Problem Framing</b></td><td>Measurable problem, stakeholders, objectives, scope, success metrics, feasibility and team roles.</td><td>Charter, problem statement, stakeholder map, research questions, scope, KPIs and role allocation.</td><td>Agreed business problem and pilot.</td></tr>
+<tr><td><b>D2 · M2 Data Acquisition & Preparation</b></td><td>Responsible acquisition, cleaning, documentation, privacy, consent, representativeness and bias.</td><td>Data audit report, source register, data dictionary/datasheet, cleaning log and versioned dataset.</td><td>Prompt panel, permitted source/API access, data schema and storage.</td></tr>
+<tr><td><b>D3 · M3 EDA</b></td><td>Hypotheses, distributions, relationships, segments, representativeness/bias and insight log.</td><td>EDA notebook, charts and concise insight summary.</td><td>Clean, traceable dataset from D2.</td></tr>
+<tr><td><b>D4 · M4 Modelling</b></td><td>Problem-aligned models, baselines, experiments, tuning and reproducibility.</td><td>Baseline and candidate methods for entity extraction, intent classification or semantic matching; experiment log.</td><td>Labelled examples, clean data and defined validation design.</td></tr>
+<tr><td><b>D5 · M5 Evaluation</b></td><td>Business metrics, leakage-free validation, uncertainty, robustness and error analysis.</td><td>Evaluation memo, metric results, error analysis, repeatability checks and model card.</td><td>Frozen evaluation sample and protocol.</td></tr>
+<tr><td><b>D6 · M6 Deployment & Monitoring</b></td><td>Deployment options, monitoring, drift, maintenance and technical debt.</td><td>Working prototype/demo, deployment architecture and monitoring plan.</td><td>Integrated pipeline, stable schemas and app integration.</td></tr>
+<tr><td><b>D7 · M7 Communication</b></td><td>Decision-maker communication, visualisation, limitations and dry run.</td><td>Draft report, model card, recommendation narrative and dry-run presentation.</td><td>Validated findings and checked claims.</td></tr></table>
+<h3>Final assessment</h3><table><tr><th>Deliverable</th><th>Expected output</th><th>Course rubric</th></tr>
+<tr><td><b>E1 · Final report (20%)</b></td><td>Full report: framing, data, methodology, evaluation, recommendations, reproducibility and limitations.</td><td>Problem framing 3; data quality/responsibility 3; methodology 4; evaluation/uncertainty 4; recommendations/clarity 4; reproducibility 2.</td></tr>
+<tr><td><b>E2 · Final presentation + individual Q&A (20%)</b></td><td>Presentation and evidence-backed product demonstration/explanation.</td><td>Storyline 5; evidence/visualisation 5; individual presentation and Q&A 10.</td></tr></table>
+<div class="note">The course outline also expects each team member to lead at least two deliverables, with GitHub commit history and meeting logs as contribution evidence; peer evaluation after M3 and M7. Confirm the latest official dates and any faculty updates. Do not fabricate work or ceremonies.</div>
+</section>
+
+<section id="literature"><h2>6. Literature review plan</h2>
+<p>The literature review is a required parallel workstream. It must synthesise evidence, compare approaches and establish the research gap; it is not simply a list of paper summaries.</p>
+<h3>Research themes</h3><ol>
+<li><b>Generative AI discovery and search behaviour:</b> conversational discovery, answer engines and differences from traditional search.</li>
+<li><b>Generative Engine Optimisation:</b> GEO concepts, proposed optimisation methods, empirical evidence and limitations.</li>
+<li><b>Brand visibility measurement:</b> mention rate, share of voice, recommendation position, query coverage, stability and measurement validity.</li>
+<li><b>Answer quality and factual accuracy:</b> product/entity matching, factual consistency, hallucination and evaluation methods.</li>
+<li><b>Source attribution and trust:</b> citations, source quality, source diversity, provenance and credibility.</li>
+<li><b>NLP and semantic methods:</b> entity recognition, intent classification, information extraction, embeddings and semantic similarity.</li>
+<li><b>RAG and recommendation systems:</b> retrieval, grounding, evidence traceability, content generation and human review.</li>
+<li><b>Agentic AI and workflow orchestration:</b> tool use, multi-step planning, state, reliability, approval gates and evaluation.</li>
+<li><b>Experiment design:</b> repeated measurements, controlled variants, confounding factors, uncertainty and causal inference.</li>
+<li><b>Responsible AI and governance:</b> bias, transparency, privacy, data provenance, copyright/terms and reproducibility.</li></ol>
+<h3>Research workflow</h3><ol><li>Write review questions and a search protocol before collecting papers.</li><li>Search Google Scholar, academic databases, publisher libraries and institutional library resources.</li><li>Prioritise peer-reviewed papers, conference proceedings, foundational books and primary technical documentation.</li><li>Use vendor materials for clearly labelled industry context, not as the only evidence for academic claims.</li><li>Record search strings, date, source type and inclusion/exclusion rationale.</li><li>Extract each source's question, method, data, findings, limitations and relevance.</li><li>Synthesise themes and compare evidence; identify contradictions and gaps.</li><li>Derive the project's conceptual framework, metric choices and method decisions from the review.</li></ol>
+<h3>Literature matrix template</h3><table><tr><th>Author/year</th><th>Question/theme</th><th>Method/data</th><th>Findings</th><th>Limitations</th><th>Implication for our design</th></tr>
+<tr><td>To populate</td><td>GEO / AI discovery</td><td>Record method</td><td>Evidence-backed summary</td><td>What remains unknown?</td><td>Discovery and visibility design</td></tr>
+<tr><td>To populate</td><td>Accuracy / trust / citations</td><td>Record method</td><td>Evidence-backed summary</td><td>Measurement limitations</td><td>Diagnostic metrics</td></tr>
+<tr><td>To populate</td><td>NLP / RAG / agents</td><td>Record method</td><td>Evidence-backed summary</td><td>Model/workflow limitations</td><td>Engine and evaluation choices</td></tr></table>
+<h3>Suggested review chapter structure</h3><p>Introduction and scope → search strategy → thematic synthesis → comparison of methods → research gap → conceptual framework → implications for project methodology → references.</p>
+<div class="callout"><b>Research integrity:</b> cite original sources, do not invent references or findings, distinguish academic evidence from vendor claims, and state when the literature does not answer a question.</div>
+</section>
+
+<section id="architecture"><h2>7. System architecture and end-to-end flow</h2>
+<pre>
+USER / BRAND TEAM
+       |
+       v
+STREAMLIT PRODUCT INTERFACE
+Brand workspace | Prompt setup | Assessment | Diagnostics | Copilot | Reports
+       |
+       v
+PYTHON APPLICATION / API LAYER
+Configuration | validation | auth/session | job state | service orchestration
+(FastAPI can be added if a separate API service is genuinely needed)
+       |
+       +----------------------+----------------------+----------------------+
+       |                      |                      |                      |
+       v                      v                      v                      v
+AI DISCOVERY ENGINE    VISIBILITY DIAGNOSTIC   GEO OPPORTUNITY       CONTENT COPILOT
+Prompt orchestration   Entity/product checks   Gap identification   RAG retrieval
+Provider integrations  Visibility/accuracy     Prioritisation       Content drafting
+Response/citation log  Competitor/source view  Evidence links       Human approval
+       |                      |                      |                      |
+       +----------------------+----------------------+----------------------+
+                              |
+                              v
+                    AUTONOMOUS GEO AGENT
+             LangGraph stateful workflow + tool calling
+             assessment -> diagnose -> recommend -> draft -> approval
+                              |
+                              v
+                    EXPERIMENTATION LAB
+             Content variants | repeat runs | comparisons
+                              |
+                              v
+                     DATA & KNOWLEDGE LAYER
+      Databricks / Delta Lake: analytical and historical data
+      Supabase / PostgreSQL: application state and configuration
+      pgvector: semantic retrieval over approved knowledge
+                              |
+                              v
+                    MONITORING & REPORTING
+       Run quality | cost | errors | model evaluation | business outputs
+</pre>
+<h3>End-to-end example</h3><ol><li>User chooses a brand, market, competitors, categories and prompt set.</li><li>Discovery Engine runs approved prompts against selected AI providers and stores responses, timestamps and provider/model metadata.</li><li>Diagnostic Engine extracts brand/product mentions, compares product claims with verified reference data, and analyses citations.</li><li>Opportunity Engine identifies possible gaps and ranks them by evidence strength, business relevance and effort.</li><li>Copilot retrieves approved brand information and diagnostic evidence to draft recommendations and content variants.</li><li>Autonomous Agent coordinates these steps, records state and pauses for human approval before any external publishing or action.</li><li>Experimentation Lab runs repeated assessments or controlled variants and reports observed differences and uncertainty.</li></ol>
+</section>
+
+<section id="stack"><h2>8. Technology stack and why each tool is used</h2>
+<table><tr><th>Layer</th><th>Primary tool</th><th>Role in our project</th><th>Dependency / decision</th></tr>
+<tr><td>Product UI</td><td><b>Streamlit</b></td><td>Build the user-facing brand workspace, assessment flow, dashboards, copilot and reports.</td><td>Use first for a fast, demonstrable application.</td></tr>
+<tr><td>Backend / orchestration</td><td><b>Python</b></td><td>Core application logic, engine functions, data validation and integrations.</td><td>Primary implementation language.</td></tr>
+<tr><td>API service</td><td><b>FastAPI (optional)</b></td><td>Expose endpoints if the UI and backend need independent services or external integrations.</td><td>Add only when required; Streamlit can call Python modules directly in the initial build.</td></tr>
+<tr><td>Data engineering</td><td><b>Databricks, PySpark, Delta Lake, SQL</b></td><td>Ingest, transform, version and analyse assessment data at Bronze/Silver/Gold layers.</td><td>Check workspace, compute, permissions and quotas.</td></tr>
+<tr><td>Operational database</td><td><b>Supabase / PostgreSQL</b></td><td>Store user/brand configuration, prompt sets, job state, approvals and app records.</td><td>Do not duplicate all analytical history already held in Delta tables.</td></tr>
+<tr><td>Vector retrieval</td><td><b>pgvector through Supabase</b></td><td>Retrieve relevant brand/product documents and evidence for grounded generation.</td><td>Use only when RAG knowledge retrieval is implemented.</td></tr>
+<tr><td>NLP / ML</td><td><b>Hugging Face, spaCy, scikit-learn</b></td><td>Entity extraction, classification, semantic matching and model evaluation.</td><td>Compare with rule-based baselines; choose model based on labelled data and performance.</td></tr>
+<tr><td>LLM integration</td><td><b>One or two LLM provider APIs</b></td><td>Collect responses from selected answer engines where permitted; generate structured recommendations and content drafts.</td><td>Provider access, pricing, rate limits, terms and model availability must be tested.</td></tr>
+<tr><td>RAG pipeline</td><td><b>Python retrieval + embeddings + pgvector</b></td><td>Ground recommendations in verified brand facts, product catalogues and cited diagnostic evidence.</td><td>Requires source register, chunking, metadata, retrieval evaluation and citation traceability.</td></tr>
+<tr><td>Agent workflow</td><td><b>LangGraph</b></td><td>Coordinate multi-step engine calls, state, retries, conditional paths and human approval.</td><td>Introduce after individual engine functions work.</td></tr>
+<tr><td>Experiment tracking</td><td><b>MLflow</b></td><td>Track model parameters, versions, metrics and evaluation runs where applicable.</td><td>Use Databricks-integrated MLflow if available.</td></tr>
+<tr><td>Visualisation</td><td><b>Plotly + Streamlit charts</b></td><td>Present visibility, competitor, citation, accuracy and experiment results.</td><td>Visuals must show sample size and scope.</td></tr>
+<tr><td>Version control / Agile</td><td><b>GitHub</b></td><td>Source code, issues, project board, pull requests, documentation and contribution history.</td><td>Use as the single project coordination source.</td></tr>
+<tr><td>Deployment</td><td><b>Streamlit Community Cloud or suitable host</b></td><td>Publish the capstone prototype for demonstration.</td><td>Choose after secrets, data access and deployment limits are checked.</td></tr>
+</table>
+<h3>How the tools fit together (avoid overlap)</h3><ul><li>Databricks is the analytical data-processing foundation; Supabase is the operational application database.</li><li>GitHub manages code and work; it is not the runtime database.</li><li>Hugging Face supplies model resources; it does not replace the LLM provider API or our evaluation.</li><li>pgvector supports semantic retrieval; it does not replace relational data storage or analytical tables.</li><li>LangGraph coordinates tools; it does not replace the logic inside the six engines.</li><li>Streamlit is the initial UI; FastAPI is optional and should be introduced only for a clear architectural reason.</li></ul>
+</section>
+
+<section id="data"><h2>9. Data architecture and core schemas</h2>
+<h3>Databricks medallion structure</h3><table><tr><th>Layer</th><th>Tables / content</th><th>Purpose</th></tr>
+<tr><td><b>Bronze</b></td><td>raw_prompts, raw_ai_responses, raw_citations, raw_api_logs, raw_public_sources</td><td>Preserve raw collected records and provenance.</td></tr>
+<tr><td><b>Silver</b></td><td>cleaned_prompts, cleaned_responses, brand_mentions, product_mentions, extracted_citations, classified_intents</td><td>Clean, standardise, validate and enrich records.</td></tr>
+<tr><td><b>Gold</b></td><td>brand_visibility_metrics, competitor_benchmarks, category_performance, accuracy_checks, citation_analytics, diagnostic_opportunities, recommendation_records</td><td>Business-ready metrics and insights.</td></tr>
+<tr><td><b>Experiments</b></td><td>experiment_runs, content_variants, experiment_comparisons, model_evaluation</td><td>Versioned tests, comparisons and evaluation.</td></tr></table>
+<h3>Core entities</h3><table><tr><th>Entity</th><th>Key fields</th></tr>
+<tr><td>Brand configuration</td><td>brand_id, brand_name, market, industry, aliases, approved_sources, configuration_version</td></tr>
+<tr><td>Competitor configuration</td><td>competitor_id, brand_id, competitor_name, aliases, category</td></tr>
+<tr><td>Prompt panel</td><td>prompt_id, prompt_text, intent, category, market, language, version, active_flag</td></tr>
+<tr><td>Assessment run</td><td>run_id, prompt_id, provider, model/version if available, timestamp, status, latency, cost_estimate</td></tr>
+<tr><td>AI response</td><td>response_id, run_id, raw_text, parsed_text, response_metadata</td></tr>
+<tr><td>Brand/product mention</td><td>response_id, entity, entity_type, position, context, extraction_method, confidence</td></tr>
+<tr><td>Citation/source</td><td>response_id, URL, domain, citation_position, source_type, relevance_review</td></tr>
+<tr><td>Reference catalogue</td><td>brand/product, approved attributes, category, source URL, last_verified_at</td></tr>
+<tr><td>Diagnostic/opportunity</td><td>finding_id, evidence_refs, issue_type, severity, confidence, effort, priority_score</td></tr>
+<tr><td>Recommendation/content</td><td>recommendation_id, finding_id, draft, evidence_refs, status, human_approval</td></tr>
+<tr><td>Experiment</td><td>experiment_id, variant_id, content_version, prompt_set_version, run_id, outcome_metrics</td></tr></table>
+<h3>Application database vs analytics lakehouse</h3><ul><li>Supabase: brand settings, users/roles if required, saved prompt sets, workflow state, approval status and vector metadata.</li><li>Databricks: raw and transformed assessment records, historical responses, analytical features, metrics and experiment outputs.</li><li>Use stable IDs to connect records across the application and analytical layers. Avoid storing credentials or sensitive secrets in notebooks or GitHub.</li></ul>
+</section>
+
+<section id="roadmap"><h2>10. Integrated development roadmap</h2>
+<p>We build vertically: each phase produces a working capability and integrates it into the application before the next capability expands it.</p>
+<table><tr><th>Phase</th><th>Build and integrate</th><th>Tools</th><th>Exit evidence / dependency</th></tr>
+<tr><td><b>0. Product foundation</b></td><td>Freeze charter, user journey, product backlog, architecture, prompt taxonomy, data model and literature search protocol.</td><td>GitHub, Python, documentation, research tools.</td><td>Approved charter, issue backlog, architecture, literature matrix; confirm faculty deadlines.</td></tr>
+<tr><td><b>1. Discovery Engine</b></td><td>Brand configuration, prompt library, provider connector, run manager, response/citation capture and raw storage. Add a first Streamlit screen.</td><td>Python, LLM APIs, Streamlit, Databricks/Delta, GitHub.</td><td>One prompt can run end-to-end; response and metadata persist; errors are logged. Requires API access and budget check.</td></tr>
+<tr><td><b>2. Visibility Diagnostic Engine</b></td><td>Brand/product dictionaries, extraction, mention and position metrics, competitor comparison, citation analysis and product accuracy checks.</td><td>Python, spaCy/Hugging Face, scikit-learn, PySpark, SQL, Plotly.</td><td>Diagnostic report traceable to source responses; human-labelled validation sample. Requires discovery data and verified reference catalogue.</td></tr>
+<tr><td><b>3. GEO Opportunity Engine</b></td><td>Opportunity taxonomy, evidence linking, confidence/effort scoring and prioritised recommendations.</td><td>Python, SQL, rules/ML as justified, Supabase.</td><td>Ranked opportunity list with evidence and rationale. Requires validated diagnostic findings.</td></tr>
+<tr><td><b>4. Content Copilot</b></td><td>Ingest approved brand documents, chunk/embed, retrieve relevant evidence, generate structured content briefs and drafts with citations and approval.</td><td>Python, LLM API, embeddings, pgvector, Supabase.</td><td>Grounded draft can be traced to sources; human reviewer can approve/reject. Requires trusted knowledge base and retrieval tests.</td></tr>
+<tr><td><b>5. Agentic orchestration</b></td><td>Define agent state, tools, workflow graph, conditional routing, retries, logs and human approval gates. Agent invokes the engines.</td><td>LangGraph, Python, engine functions, Supabase state.</td><td>Agent completes assessment → diagnosis → opportunity → draft → approval workflow. Requires stable engine interfaces.</td></tr>
+<tr><td><b>6. Experimentation Lab</b></td><td>Content variant registry, prompt/version control, repeated runs, comparisons and uncertainty reporting. Use a controlled demo property if real brand changes are unavailable.</td><td>Databricks, Python, MLflow, Streamlit.</td><td>Reproducible comparison report with clear limitations. Requires repeatable discovery pipeline and versioned content.</td></tr>
+<tr><td><b>7. Configuration & integration</b></td><td>Unify the modules, configurable industry/brand setup, role-aware workflows if feasible, unified navigation and report generation.</td><td>Streamlit, Supabase, Python, GitHub.</td><td>One integrated product journey for the beauty pilot; second configuration only if time permits.</td></tr>
+<tr><td><b>8. Evaluation & delivery</b></td><td>System tests, model evaluation, reliability, cost/latency, responsible AI review, report, demo and deployment plan.</td><td>Python tests, MLflow, GitHub, notebooks, documentation.</td><td>D1–D7, E1/E2 evidence, reproducible demo and limitations.</td></tr></table>
+<div class="callout"><b>Integrated approach:</b> do not wait until the end to connect modules. The Discovery Engine should already feed a basic UI; the Diagnostic Engine should add a new view to that UI; the Copilot should consume diagnostic findings; the Agent should orchestrate working engine functions.</div>
+</section>
+
+<section id="agile"><h2>11. Agile delivery model</h2>
+<p>Use a lightweight Scrum-inspired process. Agile is the way we manage and evidence the work; it is not a claim that ceremonies happened when they did not.</p>
+<h3>GitHub Projects board</h3><table><tr><th>Status</th><th>Meaning</th></tr><tr><td>Product Backlog</td><td>All product features, research and academic tasks.</td></tr><tr><td>Ready</td><td>Task has a clear owner, description and acceptance criteria.</td></tr><tr><td>In Progress</td><td>Currently being worked on.</td></tr><tr><td>Review / Testing</td><td>Awaiting code review, validation or faculty/peer feedback.</td></tr><tr><td>Done</td><td>Acceptance criteria met and evidence linked.</td></tr></table>
+<h3>Product epics</h3><ol><li>Product framing and literature review.</li><li>Discovery engine and data foundation.</li><li>Visibility diagnostics and competitor intelligence.</li><li>GEO opportunities and recommendation engine.</li><li>Content copilot and knowledge retrieval.</li><li>Autonomous agent orchestration.</li><li>Experimentation and monitoring.</li><li>Integration, evaluation and final communication.</li></ol>
+<h3>Example user story</h3><div class="callout">As a digital marketing manager, I want to select a brand, competitors and a prompt set so that I can run a consistent AI visibility assessment and compare results.</div>
+<p><b>Acceptance criteria:</b> configuration is saved; prompt set has a version; provider/model and timestamp are recorded; raw response is stored; failures are visible; extracted metrics trace back to original responses.</p>
+<h3>Iteration cadence</h3><ul><li><b>Planning:</b> select a small, achievable set of tasks for a 2–3 working-day iteration.</li><li><b>Async daily log:</b> yesterday's progress, today's task and blocker. If solo, keep a personal log; do not invent stand-ups.</li><li><b>Review:</b> show a working feature, test evidence or research finding to teammates/faculty.</li><li><b>Retrospective:</b> record what worked, what failed and one process change.</li><li><b>Definition of done:</b> code runs, output is checked, data lineage is documented, acceptance criteria are met and GitHub issue is updated.</li></ul>
+<h3>Team-of-three ownership proposal</h3><table><tr><th>Workstream</th><th>Suggested lead</th><th>Contribution evidence</th></tr><tr><td>Product/business framing, literature and report integration</td><td>Member 1 / coordinator</td><td>Charter, research matrix, decisions, report sections and commits.</td></tr><tr><td>Data engineering, Databricks and analytics</td><td>Member 2</td><td>Data schemas, ingestion/cleaning notebooks, EDA, tests and commits.</td></tr><tr><td>AI integrations, copilot and agent workflow</td><td>Member 3</td><td>Provider tests, RAG, agent graph, app features and commits.</td></tr><tr><td>Cross-module testing and product integration</td><td>Shared, with named task owners</td><td>Integration tests, demo script, review notes and issue history.</td></tr></table>
+<div class="note">Course requirement: every member should lead at least two course deliverables. Allocate D1–D7 leads explicitly, even if implementation effort is uneven. Record actual ownership and support transparently.</div>
+</section>
+
+<section id="evaluation"><h2>12. Evaluation strategy and success measures</h2>
+<h3>Visibility and business metrics</h3><ul><li><b>Brand mention rate:</b> proportion of assessed responses mentioning the brand.</li><li><b>Share of mentions:</b> brand mentions relative to the defined competitor set and denominator.</li><li><b>Recommendation position:</b> location/order of brand mention using a consistent coding rule.</li><li><b>Category/intent coverage:</b> prompt segments where the brand appears.</li><li><b>Product accuracy:</b> match of extracted product attributes to verified reference information.</li><li><b>Citation analysis:</b> source frequency, diversity and relevance review.</li><li><b>Repeatability:</b> variability across repeated prompts/runs.</li><li><b>Operational measures:</b> cost per assessment, latency, failure rate and completion rate.</li></ul>
+<h3>Model and system evaluation</h3><table><tr><th>Component</th><th>Evaluation</th></tr><tr><td>Entity/product extraction</td><td>Human-labelled sample; precision, recall and F1.</td></tr><tr><td>Intent classification</td><td>Baseline comparison, confusion matrix and macro-F1 if classes are imbalanced.</td></tr><tr><td>Semantic matching</td><td>Human-judged relevance sample and agreement review.</td></tr><tr><td>Product accuracy checks</td><td>Attribute-level match/error rate against approved catalogue; track unknown/not-verifiable cases separately.</td></tr><tr><td>RAG retrieval</td><td>Relevance of retrieved evidence, source traceability and whether the generated answer stays within evidence.</td></tr><tr><td>Recommendation quality</td><td>Human review for factual support, relevance, actionability, priority and clarity.</td></tr><tr><td>Agent workflow</td><td>Task completion, tool-call correctness, invalid transitions, retry behaviour, approval handling and trace logs.</td></tr><tr><td>Experimentation</td><td>Repeat runs, variance, confidence intervals where appropriate, version control and confounding limitations.</td></tr></table>
+<div class="note">Visibility scores apply only to the defined prompt sample, providers, geography, language and observation dates. Do not call them market share, universal AI ranking or sales impact. A before/after comparison is observational unless a defensible controlled design supports causal interpretation.</div>
+</section>
+
+<section id="risks"><h2>13. Risks, dependencies and feasibility boundaries</h2>
+<table><tr><th>Risk/dependency</th><th>Impact</th><th>Mitigation</th></tr>
+<tr><td>Provider API access, terms, rate limits and price</td><td>Limits provider coverage and run volume.</td><td>Test access early, estimate cost, start with small prompt batches, log model/provider/date and keep a permitted fallback.</td></tr>
+<tr><td>Databricks workspace/compute access</td><td>Can block planned data engineering work.</td><td>Check permissions and quotas immediately; prototype locally with small files if needed, then migrate reproducibly.</td></tr>
+<tr><td>Prompt sample bias</td><td>Results may not represent all user queries.</td><td>Define prompt taxonomy, sampling method, language and market; disclose scope and limitations.</td></tr>
+<tr><td>AI response variability</td><td>Single answers can mislead.</td><td>Repeat a subset and report variation; preserve timestamps and provider metadata.</td></tr>
+<tr><td>Entity/product matching errors</td><td>Can distort visibility and accuracy scores.</td><td>Build aliases/reference catalogue and validate against human-labelled examples.</td></tr>
+<tr><td>RAG hallucinations / weak retrieval</td><td>Copilot may create unsupported content.</td><td>Use approved sources, retrieval evaluation, citations, refusal/uncertainty rules and human approval.</td></tr>
+<tr><td>Agent reliability</td><td>Multi-step workflows may fail or call tools incorrectly.</td><td>Keep deterministic engine functions, validate tool inputs/outputs, log state, set retry limits and use approval gates.</td></tr>
+<tr><td>No company partnership</td><td>No private analytics or permission to edit real brand content.</td><td>Use public sources for observational pilot; use clearly labelled fictional/demo content for controlled experiments.</td></tr>
+<tr><td>Time and team capacity</td><td>Too much scope can leave an incomplete product.</td><td>Integrated vertical slices; prioritise course submissions; track stretch work separately.</td></tr>
+<tr><td>Privacy, copyright and platform terms</td><td>Public data still has restrictions.</td><td>Review provider/site terms, minimise personal data, document provenance, follow faculty guidance on DPDP Act 2023.</td></tr></table>
+<h3>Feasibility classification</h3><table><tr><th>Level</th><th>What it means for our build</th></tr><tr><td><b>Integrated prototype — must demonstrate</b></td><td>Discovery engine; traceable data foundation; visibility/accuracy diagnostics; competitor comparison; evidence-linked opportunities; basic RAG copilot; agent workflow invoking real engine tools with human approval; Streamlit interface; evaluation and documentation.</td></tr><tr><td><b>Advanced stretch</b></td><td>More providers, richer semantic models, robust vector retrieval, controlled content experiments, recurring scheduled runs, second industry configuration and advanced agent recovery.</td></tr><tr><td><b>Future commercial product</b></td><td>Production multi-tenant SaaS, enterprise security/permissions, broad provider coverage, large-scale monitoring, external integrations and validated causal optimisation.</td></tr></table>
+<div class="good"><b>Non-negotiable product ambition:</b> demonstrate the integrated cycle — configure → discover → diagnose → recommend → generate content → agent coordinates → evaluate. The scope can be narrow in data volume, but the product workflow should be real.</div>
+</section>
+
+<section id="start"><h2>14. First implementation plan</h2>
+<h3>First working session</h3><ol><li>Check the latest official course calendar and confirm D1–D3 submission status plus upcoming D4–D7/E1/E2 dates.</li><li>Review the existing GitHub repository and project board; establish one canonical copy of each document.</li><li>Create epics and issues for all six engines, academic deliverables and literature review.</li><li>Check Databricks workspace, compute, catalog/schema and storage access.</li><li>Check Supabase project access and decide which application records belong there.</li><li>Check access, pricing and terms for one or two AI provider APIs.</li><li>Define the initial beauty prompt taxonomy and a small pilot prompt set.</li><li>Run one prompt end-to-end and persist the response with metadata and any citations.</li></ol>
+<div class="callout"><b>First technical milestone:</b> A user selects a brand and prompt in Streamlit → Python sends the prompt to an accessible provider → the response and run metadata are saved → the Discovery Engine extracts a basic brand mention/citation record → the UI displays the result. This proves the first integrated slice.</div>
+<h3>Suggested initial backlog</h3><table><tr><th>Priority</th><th>Task</th><th>Acceptance criteria</th></tr><tr><td>P0</td><td>Repository and environment audit</td><td>Repo structure understood; dependencies and setup instructions documented.</td></tr><tr><td>P0</td><td>Provider feasibility test</td><td>One permitted API call succeeds; response, cost/limits and metadata captured.</td></tr><tr><td>P0</td><td>Initial schema and prompt taxonomy</td><td>Prompt, run, response and citation IDs/fields agreed.</td></tr><tr><td>P0</td><td>Discovery vertical slice</td><td>Prompt-to-response-to-storage-to-basic-display works.</td></tr><tr><td>P1</td><td>Databricks medallion setup</td><td>Raw record saved; a cleaned table and basic query are reproducible.</td></tr><tr><td>P1</td><td>Brand/product reference catalogue</td><td>Approved attributes and source URLs are stored with provenance.</td></tr><tr><td>P1</td><td>Literature review protocol</td><td>Review questions, search terms, inclusion rules and matrix ready.</td></tr></table>
+<h3>Suggested repository structure</h3><pre>BEYOND-THE-SEARCH-BAR/
+  README.md
+  PROJECT_CHARTER.md
+  PRODUCT_ROADMAP.md
+  LITERATURE_REVIEW/
+    search_protocol.md
+    literature_matrix.csv
+    synthesis.md
+  docs/
+    ARCHITECTURE.md
+    DATA_DICTIONARY.md
+    DECISION_LOG.md
+    MEETING_LOG.md
+    MODEL_CARDS/
+    DEPLOYMENT_PLAN.md
+  configs/
+    beauty_india.yaml
+    prompt_panel.csv
+  data/{raw,processed,reference}/
+  notebooks/
+    01_data_audit.ipynb
+    02_data_cleaning.ipynb
+    03_eda.ipynb
+    04_entity_extraction.ipynb
+    05_intent_classification.ipynb
+    06_accuracy_and_citations.ipynb
+    07_model_experiments.ipynb
+    08_evaluation.ipynb
+  src/
+    discovery/
+    diagnostics/
+    opportunities/
+    copilot/
+    agent/
+    experimentation/
+    data/
+  app/
+    Home.py
+    pages/
+    components/
+  tests/
+  reports/
+    D1_to_D7/
+    evaluation/
+    final/</pre>
+</section>
+
+<section><h2>15. Working principles</h2><ul><li>Follow the capstone course outline and CRISP-DM lifecycle; map product work to academic evidence.</li><li>Build and integrate in short iterations. Each module must have a clear input, output and acceptance criteria.</li><li>Use simple baselines before complex ML. Do not add a model merely to make the project look advanced.</li><li>Keep raw, cleaned and derived data separate and traceable.</li><li>Version prompt sets, brand reference data, content variants and experiment runs.</li><li>Ground recommendations in evidence and require human approval for external actions.</li><li>Report sample sizes, uncertainty, provider/model details and limitations.</li><li>Keep a reproducible GitHub history, decision log and honest contribution record.</li><li>Build a real integrated prototype first; treat production-scale features as future roadmap.</li></ul></section>
+<footer>BEYOND THE SEARCH BAR · Definitive working baseline v2.0 · Prepared 30 October 2026 · Confirm dates, access, pricing and faculty updates before execution.</footer>
+</main></body></html>

@@ -1,0 +1,245 @@
+{
+  "code": {
+    "commit": null,
+    "uncommitted_changes": null
+  },
+  "config": {
+    "file": "configs/beauty_india.yaml",
+    "sha256": "15c25d225826231a70c87cab7c44076c42caafd2ef332e2acdea2d58ffaba3bc"
+  },
+  "data_version": "data-v0.9",
+  "environment": {
+    "beyondsearch": "0.2.0",
+    "packages": {
+      "PyYAML": "6.0.3",
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.3",
+      "openpyxl": "3.1.5",
+      "pandas": "3.0.5",
+      "scipy": "1.18.1",
+      "statsmodels": "0.15.0"
+    },
+    "platform": "Linux-6.18.44-fc-v230-x86_64-with-glibc2.39",
+    "python": "3.13.16"
+  },
+  "facts": {
+    "primary_sample": 222,
+    "rows_excluded": 0,
+    "rows_usable": 238
+  },
+  "finished_utc": "2026-11-03T05:22:31+00:00",
+  "inputs": {
+    "prompt_panel": {
+      "bytes": 6332,
+      "path": "data/design/prompt_panel_v2.csv",
+      "rows": 40,
+      "sha256": "2b5739f0b72cf9966a097d51ecd1bb9b681b997da09bb77f86e6f6384d0b5b6a"
+    },
+    "response_log": {
+      "bytes": 449019,
+      "path": "data/processed/response_log.csv",
+      "rows": 238,
+      "sha256": "8833d7e5b212245001c7ac00702cea172dccf000c39b93fc57e7f1dd5c36672f"
+    },
+    "run_schedule": {
+      "bytes": 16762,
+      "path": "data/design/run_schedule.csv",
+      "rows": 600,
+      "sha256": "72207aeec8f0463355a8b7e14eefa852be888f8621659dd8afa53b238cec8c50"
+    }
+  },
+  "outputs": {
+    "excluded_rows": {
+      "bytes": 30,
+      "path": "outputs/excluded_rows.csv",
+      "sha256": "7fc94dbbcb94c1c5ef34f0ddc7f335ac2dfb7933b39dd83266870d05424efd86"
+    },
+    "fig01": {
+      "bytes": 40180,
+      "path": "outputs/figs/fig01.png",
+      "sha256": "527f44b948665bd361963147423cef7595996c05a7b5280431856a437f9a844b"
+    },
+    "fig02": {
+      "bytes": 58811,
+      "path": "outputs/figs/fig02.png",
+      "sha256": "eb95aab6d2b1786a8f2051687f486fa5c3877e1303fa9ea28496a928b2c747b1"
+    },
+    "fig03": {
+      "bytes": 31584,
+      "path": "outputs/figs/fig03.png",
+      "sha256": "820959757851786fae11abb7efe969771b1e8729f23c057ae742b6b54f5828d0"
+    },
+    "fig04": {
+      "bytes": 32782,
+      "path": "outputs/figs/fig04.png",
+      "sha256": "756a2b49595e4231f6652272653183c58e2fbc1430255960571c6826b25b2783"
+    },
+    "fig05": {
+      "bytes": 34318,
+      "path": "outputs/figs/fig05.png",
+      "sha256": "165b57000878e5bd69890e18c9b4776fc15f673ee0c345b70bfee02a9bf4fa02"
+    },
+    "fig06": {
+      "bytes": 36075,
+      "path": "outputs/figs/fig06.png",
+      "sha256": "9c674b379078ad74d6bba579fdf891c0df631e4382d5d952b31f2b9b2f1e1d74"
+    },
+    "fig07": {
+      "bytes": 38501,
+      "path": "outputs/figs/fig07.png",
+      "sha256": "b3243c2bf745ea4420f7f05e41e16ef17ebbb88f5e317dc5e6d06c4e874584df"
+    },
+    "fig08": {
+      "bytes": 37498,
+      "path": "outputs/figs/fig08.png",
+      "sha256": "4856eec1dd86bf2b333e434f599ca4317ef77d1ff8ccc10ad49d5c55ee333a06"
+    },
+    "fig09": {
+      "bytes": 44673,
+      "path": "outputs/figs/fig09.png",
+      "sha256": "ebed68ae315a4280d524bebcce75c51b234dd3a3d855d3dd77046d9766132f08"
+    },
+    "insight_log": {
+      "bytes": 2997,
+      "path": "outputs/insight_log.csv",
+      "sha256": "4fae33391f3c754dd715a1ae20cca0389c62b445856e85f113cbe525518f2e54"
+    },
+    "results": {
+      "bytes": 5577,
+      "path": "outputs/results.json",
+      "sha256": "23558d8fb23bbd93aab38d90b33b9b94ad3c013c3d7c63def230ad63ed2b9d1e"
+    },
+    "summary_html": {
+      "bytes": 212800,
+      "path": "outputs/summary.html",
+      "sha256": "d889b56d1466b31666452f416be3ae853d2872fa5f9c12877c27b120ce699763"
+    },
+    "summary_pdf": {
+      "bytes": 195102,
+      "path": "outputs/summary.pdf",
+      "sha256": "b0e4858c4ea0d8975971dbd7810ed0af57a071919dd20c894e76ddd15e048e5c"
+    },
+    "table_H1_rates": {
+      "bytes": 180,
+      "path": "outputs/tables/H1_rates.csv",
+      "sha256": "45dd752e3f04f258dd0fa5f31c6fee57348b5792bd45271ca11a54d1a0f26703"
+    },
+    "table_H1_table": {
+      "bytes": 50,
+      "path": "outputs/tables/H1_table.csv",
+      "sha256": "30225bf4983f66a79541ffbd7da7d5042ac8087f5a805706463bac474141280f"
+    },
+    "table_H2_rates": {
+      "bytes": 200,
+      "path": "outputs/tables/H2_rates.csv",
+      "sha256": "29b78744e83c7da33891d80c684a455e414fa70c90328e7f369fd30d853944d1"
+    },
+    "table_H3_comp_rates": {
+      "bytes": 383,
+      "path": "outputs/tables/H3_comp_rates.csv",
+      "sha256": "a30529b7d7246e47fa07e2892787247e9a32b1cd276a01b210a79e31276b46bb"
+    },
+    "table_H3_rates": {
+      "bytes": 392,
+      "path": "outputs/tables/H3_rates.csv",
+      "sha256": "9880261c38598d818747132f825dc03c0e73eae19601bc09dc851e900d4fa072"
+    },
+    "table_H4_rates": {
+      "bytes": 509,
+      "path": "outputs/tables/H4_rates.csv",
+      "sha256": "b4607cb839783024e1c7fa6804ebe5cf05414921e9e269606ce5843b3e9b2ba9"
+    },
+    "table_H5_table": {
+      "bytes": 47,
+      "path": "outputs/tables/H5_table.csv",
+      "sha256": "3ea62645649ea9e49217c9711713f9c5a84790fe1d6ba1c3be788ab49ac9c76e"
+    },
+    "table_H6_by_engine": {
+      "bytes": 131,
+      "path": "outputs/tables/H6_by_engine.csv",
+      "sha256": "404e3b265f0ef56e84d562caa908659b4f05d6279eeaa73ef57c7659217489ac"
+    },
+    "table_bias_engine_method": {
+      "bytes": 64,
+      "path": "outputs/tables/bias_engine_method.csv",
+      "sha256": "50de141dd599fbb7916d1df051efc9ad8ef74dd6cf45887284176f756ca928d5"
+    },
+    "table_category_by_engine": {
+      "bytes": 257,
+      "path": "outputs/tables/category_by_engine.csv",
+      "sha256": "51a41deaed212aeef679deb7a6560f880789287d323d5df8843b52a7fb459ab9"
+    },
+    "table_engine_by_intent": {
+      "bytes": 200,
+      "path": "outputs/tables/engine_by_intent.csv",
+      "sha256": "cd8463af482418ee7de66b6ad31d4c378b24bb6b0a299f544ee97d5c39e2d4a4"
+    },
+    "table_engine_by_method": {
+      "bytes": 158,
+      "path": "outputs/tables/engine_by_method.csv",
+      "sha256": "a0af4d6659daaa4b2dcf37570b392a6f2714f985ce6da9e80e3657bf35727b9b"
+    },
+    "table_method_counts": {
+      "bytes": 62,
+      "path": "outputs/tables/method_counts.csv",
+      "sha256": "f961f8fe140573e9700e8c63425e19bb61df855deae77048f12ba97a9fde1a6b"
+    },
+    "table_planned_vs_collected": {
+      "bytes": 142,
+      "path": "outputs/tables/planned_vs_collected.csv",
+      "sha256": "4a3a126416d17d221bdeefb4fd30c2382bb82c1c6303d56f6a18088fc4d465c2"
+    },
+    "table_retailer_share": {
+      "bytes": 172,
+      "path": "outputs/tables/retailer_share.csv",
+      "sha256": "e810bd58bcc83563b5780d9504ba4a3d70258fdd871d07d42806ef2af7289373"
+    },
+    "table_robust_by_engine": {
+      "bytes": 253,
+      "path": "outputs/tables/robust_by_engine.csv",
+      "sha256": "ed3418c1b07c7c7114dd62999739bc7a0f6fe88bd489aada26e16fb2e29e0a84"
+    },
+    "table_robust_by_engine_method": {
+      "bytes": 401,
+      "path": "outputs/tables/robust_by_engine_method.csv",
+      "sha256": "0fa60d09e66b784dcbf3087242407840bdd9155978dc786580b0e6271fac2c4c"
+    },
+    "table_runs_per_collector": {
+      "bytes": 33,
+      "path": "outputs/tables/runs_per_collector.csv",
+      "sha256": "dad6fa44073f160bb46014d6233a70333ddb091008e33192434ff08c3a76c291"
+    },
+    "validation": {
+      "bytes": 1025,
+      "path": "outputs/validation.json",
+      "sha256": "3b98035beef5d92e35ebf36ca2d00859782e374b326d1870b7cc51ded30f9b8c"
+    }
+  },
+  "project": "Beyond the Search Bar: beauty and skincare, India (pilot: Sephora India)",
+  "run_id": "20261103T052228Z-1d5624eb",
+  "seed": 42,
+  "started_utc": "2026-11-03T05:22:28+00:00",
+  "status": "ok",
+  "steps": [
+    {
+      "name": "load inputs",
+      "seconds": 0.019,
+      "status": "ok"
+    },
+    {
+      "name": "validate data",
+      "seconds": 0.019,
+      "status": "ok"
+    },
+    {
+      "name": "analyse",
+      "seconds": 0.202,
+      "status": "ok"
+    },
+    {
+      "name": "save outputs",
+      "seconds": 3.425,
+      "status": "ok"
+    }
+  ]
+}

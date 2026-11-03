@@ -1,0 +1,137 @@
+<html><head><meta charset="utf-8"><style>
+@page{size:A4;margin:14mm 14mm 14mm}
+body{font-family:Helvetica,Arial,sans-serif;font-size:9.3pt;line-height:1.38;color:#1b1b1b}
+h1{font-size:18pt;margin:0 0 3px;color:#1b1b1b} h2{font-size:12.5pt;margin:16px 0 5px;color:#c2185b;border-bottom:1.5px solid #c2185b;padding-bottom:2px}
+h3{font-size:10pt;margin:10px 0 3px} .sub{color:#555;font-size:8.6pt;margin-bottom:8px}
+table{border-collapse:collapse;width:100%;margin:5px 0 7px} td,th{border:0.5px solid #bbb;padding:3px 5px;vertical-align:top;font-size:8.2pt} th{background:#f1f1f1;text-align:left}
+.box{background:#faf3f6;border-left:3px solid #c2185b;padding:4px 8px;margin:6px 0} p{margin:4px 0} ul{margin:3px 0 3px 16px;padding:0} li{margin-bottom:2px}
+.pb{page-break-before:always} .src{color:#555;font-size:7.8pt} 
+.flow{display:flex;gap:5px;margin:8px 0;align-items:stretch} .st{flex:1;border:1px solid #c2185b;border-radius:4px;padding:4px 5px;font-size:7.8pt;background:#fff} .st b{display:block;color:#c2185b;font-size:8.2pt;margin-bottom:2px} .ar{align-self:center;color:#c2185b;font-weight:bold}
+.cover{padding-top:6px} .tag{display:inline-block;background:#c2185b;color:#fff;font-size:7.6pt;padding:1px 6px;border-radius:8px;margin-right:4px}
+</style></head><body>
+<div class="cover">
+<h1>Research Foundation: AI Benchmarking, Literature Review, Secondary Research and Data Architecture</h1>
+<div class="sub">Sephora India AI-Commerce Engine &nbsp;|&nbsp; Team L: Saba Gul (BA05051), Saurav Kumar (BA05053), Agnik Majumder (BA05006) &nbsp;|&nbsp; XIME Bangalore, PGDM, ANCP &nbsp;|&nbsp; Faculty guide: Nikhil D Jonathan &nbsp;|&nbsp; 28 October 2026 &nbsp;|&nbsp; Part submission with D3 (data will be extended later)</div>
+<div class="box"><b>Problem in one line.</b> When an Indian shopper asks an AI assistant for beauty products, does it name and link Sephora India, and how does that compare with Nykaa? Sephora India's digital team needs this to decide which content and product-feed fixes to make first.<br>
+<b>This document answers four questions that come before the analysis:</b> (1) which AI engines we study and why, (2) what earlier research and industry work says, (3) what outside data tells us about the market, and (4) how our data was collected and why it can support the analysis.</div>
+</div>
+
+<h2>1. AI engine benchmarking: why these five engines</h2>
+<p><b>Selection rule.</b> An engine enters the panel if it meets all three tests: (a) real reach among Indian users, judged from at least two independent sources; (b) it answers beauty-shopping questions with live web retrieval or visible sources, because our outcomes are retailer names and links; (c) our team can query it repeatably through a normal public account.</p>
+<h3>1.1 Reach of the candidate engines in India (three independent measures)</h3>
+<table><tr><th>Engine</th><th>Similarweb: share of web visits to seven assistants, India, Sep 2026 <sup>[1]</sup></th><th>StatCounter: AI chatbot share, India, Sep 2026 <sup>[3]</sup></th><th>Sensor Tower: monthly active users in India, May 2026 <sup>[2]</sup></th><th>Decision</th></tr>
+<tr><td>ChatGPT</td><td>64.1%</td><td>77.25%</td><td>330 million</td><td>In: largest on every measure</td></tr>
+<tr><td>Gemini</td><td>20.2%</td><td>16.04%</td><td>229 million</td><td>In: clear second</td></tr>
+<tr><td>Claude</td><td>11.7%</td><td>1.37%</td><td>about 72 million (grew from 28 million, Feb to May 2026)</td><td>In: measures disagree, but two of three show large and fast-growing reach</td></tr>
+<tr><td>Perplexity</td><td>0.9%</td><td>3.62%</td><td>about 29 million</td><td>In at low weight: small reach, but built around cited sources, which we need for link and repeatability tests (H5, H6)</td></tr>
+<tr><td>Microsoft Copilot</td><td>0.2%</td><td>1.71%</td><td>not reported in our source</td><td>Out: below 2% on both share measures</td></tr>
+<tr><td>DeepSeek</td><td>not in the Similarweb list</td><td>0%</td><td>not reported</td><td>Out</td></tr>
+<tr><td>Google AI Mode / AI Overviews</td><td colspan="2">Not a stand-alone chatbot, so not in the chatbot tables. It is part of Google Search.</td><td>No India-specific figure found in our sources</td><td>In: shoppers meet it inside normal Google search</td></tr></table>
+<p class="src">The three measures count different things (web visits, referral traffic, app and web users), so they should not agree exactly. We use them to rank engines and set rough weights, not to claim exact market shares. Claude's gap between Similarweb (11.7%) and StatCounter (1.37%) is the clearest example.</p>
+<h3>1.2 Panel design that follows from the benchmark</h3>
+<table><tr><th>Engine</th><th>Runs per question (of 30)</th><th>Planned share</th><th>Why this weight</th></tr>
+<tr><td>ChatGPT</td><td>10</td><td>33%</td><td>Largest reach on every measure; Similarweb 64.1% rounded down so no engine swamps the sample</td></tr>
+<tr><td>Google AI Mode</td><td>8</td><td>27%</td><td>Shoppers meet it inside Google search. The weight is our judgement (Google Search is the default way shoppers look things up in India), because no chatbot table covers it</td></tr>
+<tr><td>Gemini</td><td>6</td><td>20%</td><td>Similarweb 20.2%</td></tr>
+<tr><td>Claude</td><td>4</td><td>13%</td><td>Similarweb 11.7%</td></tr>
+<tr><td>Perplexity</td><td>2</td><td>7%</td><td>Raised above its 0.9% Similarweb share so there are enough cited-source answers to test links and repeat runs</td></tr></table>
+<p>The plan is 20 English questions &times; 30 runs = <b>600 answers</b>. Because results are reported per engine, the weights can be changed later and the analysis re-weighted without re-collecting. The weights are a design choice and will be reviewed when the data is updated.</p>
+<div class="box"><b>Link to our hypotheses.</b> H3 (engines differ) and the engine control in the D4 model exist because reach is concentrated in two engines while the others still matter for shopping journeys.</div>
+
+<h2 class="pb">2. Literature review</h2>
+<p><b>Review question.</b> What do research and official guidance establish about visibility in AI-generated answers, how can it be measured, and what can public observations tell us about Sephora India versus Nykaa?</p>
+<h3>2.1 Generative engine optimization (GEO) and measuring visibility</h3>
+<p>Aggarwal et al. (2024) define GEO as improving how often and how prominently content appears in answers from generative search engines, and introduce GEO-bench, a benchmark of queries across domains. They report visibility gains of up to 40% for some strategies in their experiments, with effects that vary by domain. <b>What it gives us:</b> visibility can be defined and measured, and strategies can be tested. <b>Limit:</b> the gains were found in the authors' setting and should not be assumed for Sephora India, today's products, or revenue. A critical survey of 45 studies (Martinez, 2026, preprint; we have not checked its publication status) frames GEO as a multi-stage, partly observable process (discovery, retrieval, ranking, citation, prominence) with inconsistent metrics and little evidence of stable cross-platform effects on real demand. <b>What it gives us:</b> a reason to report several metrics (mention, link, position) and to repeat runs.</p>
+<h3>2.2 How AI shopping agents choose products</h3>
+<p>Allouah et al. (2025) built ACES, a sandbox where AI agents pick products from a mock store. Different models produced very different selection shares for the same products; position effects were large, differed by provider and model version, and could reverse between versions; a "Sponsored" tag lowered selection while a platform "Overall Pick" tag raised it; telling agents to ignore position did not remove the effect. Microsoft Research's Magentic Marketplace (2025) found that frontier agents approach optimal outcomes only under ideal search conditions, degrade as the number of options grows, and show a strong first-proposal bias. <b>What it gives us:</b> engine and model version matter (our H3, engine control), position inside an answer matters (the position feature), and results can shift when a model is updated (a reason to record dates and model labels).</p>
+<h3>2.3 Official platform guidance</h3>
+<p>Google Search Central (2026) says foundational SEO still matters for Google's AI features, stresses useful, original and reliable content and technical eligibility, warns against unsupported GEO "hacks", and notes that inclusion is not guaranteed. <b>Limit:</b> this is Google guidance for Google Search only, not proof about ChatGPT or Gemini apps.</p>
+<h3>2.4 Sephora, Nykaa and AI commerce</h3>
+<ul><li>Sephora (24 March 2026) announced a Sephora app in ChatGPT for curated advice and product discovery, first piloted in the United States. This shows AI commerce activity, but not Sephora India's visibility.</li>
+<li>Reliance Industries (3 November 2023) announced the Sephora tie-up with Reliance Retail Ventures to build Sephora's India presence: business context, not evidence about AI visibility.</li>
+<li>Nykaa and OpenAI signed a multi-year partnership (reported 17 June 2026) that lists Nykaa's beauty and fashion storefronts as connected apps in ChatGPT, drawing on Nykaa's catalogue and routing shoppers to Nykaa's app or website <sup>[5]</sup>. <b>What it gives us:</b> a plausible reason for Nykaa to be strong in ChatGPT, and a reason to check whether its lead also appears on engines outside this partnership (our data, section 3.2).</li></ul>
+<h3>2.5 Industry measurement examples</h3>
+<p>Cited Index (2026), <i>Best Skincare &amp; Beauty in AI Search India, August 2026</i>, uses non-branded consumer prompts across five AI platforms and publishes mention, position and citation measures. AccessAegis (2026), <i>AI Visibility in India: 2026 Brand Study</i>, describes 15 buyer prompts per brand on ChatGPT and Perplexity with saved answers and URLs. Both are vendor work: useful as protocol examples, not as neutral evidence, and neither (as described) estimates repeat-run variation.</p>
+<h3>2.6 What is established and what is not</h3>
+<table><tr><th>Better supported</th><th>Not established (what our project tests)</th></tr>
+<tr><td>AI-answer visibility can be measured with explicit mention, position and citation metrics. Engines and model versions behave differently. Google's guidance says SEO foundations still matter. Sephora and Nykaa both have AI-commerce activity.</td><td>That Sephora India trails Nykaa or Tira in AI answers. That any single factor makes a brand rank higher. That visibility gains raise sales. That advice for one platform carries over to all.</td></tr></table>
+<div class="box"><b>Contribution of this project.</b> A repeated-observation, India-focused comparison of Sephora India, Nykaa and Tira across beauty-shopping question types and five engines, with transparent text-rule coding of mentions and links. We do not claim that no earlier study exists.</div>
+<h3>2.7 How the review was done</h3>
+<p>Sources were found through arXiv, publisher and platform pages and web search, and sorted into academic, official guidance, company announcements and vendor studies. Search strings: "generative engine optimization" visibility citations; "AI search" brand visibility measurement; "LLM recommendations" e-commerce product ranking; "AI-generated answers" source citations repeatability; beauty retail product discovery generative AI India; Sephora India ChatGPT recommendation visibility; Nykaa Tira AI search visibility. This is a working review and will be extended with further searches before the final report.</p>
+
+<h2 class="pb">3. Secondary research</h2>
+<p>All figures below come from published sources; each is cited at the end. We use them to set the engine panel and to give context for the primary findings. They are not part of the main hypothesis tests.</p>
+<h3>3.1 Market context</h3>
+<table><tr><th>Evidence</th><th>Figure (as published)</th><th>What it means for us</th></tr>
+<tr><td>Indian shoppers using AI while shopping (NielsenIQ, <i>Agentic Commerce India 2026</i>, fielded August 2026 in India's top 8 metros) <sup>[4]</sup></td><td>92% have used AI while shopping; 96% are open to AI shopping tools; 79% use ChatGPT and 72% use Gemini</td><td>The behaviour we study is mainstream, and the two engines with most use are the ones we weight most. The page does not state the sample size.</td></tr>
+<tr><td>Engine reach in India (Sensor Tower via Digit, 17 June 2026) <sup>[2]</sup></td><td>ChatGPT 330M, Gemini 229M, Claude about 72M, Perplexity about 29M monthly active users</td><td>Supports including all four, and shows Claude's rapid growth.</td></tr>
+<tr><td>Search interest in AI tools (Google, <i>India's Year in Search 2025</i>) <sup>[6]</sup></td><td>Gemini was the number 2 overall search in India in 2025; searches for Perplexity and ChatGPT also rose</td><td>Public interest in these tools is rising, in step with the usage data.</td></tr>
+<tr><td>Chatbots and beauty (YouGov survey, 2022, shown by Statista) <sup>[7]</sup></td><td>Indian consumers rated beauty and cosmetics as the online purchase category where a customer-service chatbot is most useful (values not shown on the page)</td><td>Older and about customer-service chatbots, so only weak support that beauty suits AI assistance.</td></tr>
+<tr><td>Nykaa and OpenAI partnership (17 June 2026) <sup>[5]</sup></td><td>Multi-year; Nykaa storefronts as connected apps in ChatGPT; over 55 million online customers as of 31 March 2026</td><td>Context for H1 and H5 in ChatGPT.</td></tr></table>
+<h3>3.2 What our own data adds</h3>
+<p>The Nykaa partnership is with OpenAI, so one might expect Nykaa's lead to be a ChatGPT effect. In our 222 unbranded answers, Nykaa is named more often than Sephora India on <b>all five</b> engines (ChatGPT 61% vs 22%, Perplexity 53% vs 11%, Claude 30% vs 9%, Gemini 12% vs 5%, Google AI Mode 10% vs 3%). The partnership may help in ChatGPT, but it does not by itself explain the gap on engines outside it. This is an observation, not a causal finding.</p>
+<h3>3.3 Google Trends</h3>
+<p>Google Trends could not be opened from our working environment, so we have not used it for this submission. Plan for the updated data: export 12-month India interest for "Sephora India", "Nykaa" and "Tira Beauty" from trends.google.com, and use it as a demand baseline to compare with how often each retailer is named in AI answers. Until then, the Google Year in Search source above is the only search-interest evidence.</p>
+
+<h2 class="pb">4. Data architecture</h2>
+<p>The design goal: every number in the analysis can be traced back to one question, one engine, one collector, one date and one saved answer.</p>
+<div class="flow">
+<div class="st"><b>1. Design</b>20 English shopper questions in 7 categories; question types: need, budget, shortlist, where-to-buy; 1 branded comparison kept apart</div><div class="ar">&rarr;</div>
+<div class="st"><b>2. Schedule</b>600 planned runs, engine mix from the benchmark, runs interleaved so every engine gets every question; each run assigned a collector</div><div class="ar">&rarr;</div>
+<div class="st"><b>3. Collection</b>Question typed into the engine; full answer text and source links copied into the shared sheet with date, model label and collection method</div><div class="ar">&rarr;</div>
+<div class="st"><b>4. Cleaning</b>Sheet merged to one CSV; checker tests required fields, duplicates, valid prompt IDs and engine names</div><div class="ar">&rarr;</div>
+<div class="st"><b>5. Features</b>Text rules: retailer named, retailer linked, position in answer, cited sites</div><div class="ar">&rarr;</div>
+<div class="st"><b>6. Analysis</b>EDA and tests (D3), models and simulator (D4 onward)</div></div>
+<h3>4.1 Data sources and what each holds</h3>
+<table><tr><th>Table</th><th>Grain (one row is...)</th><th>Key fields</th><th>Role</th></tr>
+<tr><td>prompt_panel</td><td>one shopper question</td><td>prompt_id, text, category, intent, language, include_in_primary_unbranded</td><td>The stimulus. Category and intent let us test H2 and H4.</td></tr>
+<tr><td>run_schedule</td><td>one planned run</td><td>run_id, prompt_id, engine, run_no, collector</td><td>Defines the sample plan, so we can check what was collected against what was planned.</td></tr>
+<tr><td>response_log</td><td>one collected answer</td><td>run_id, run date and time (IST), full answer text, citation URLs, response status, collection method, model label, memory/personalisation flag, logged-in flag, notes</td><td>The evidence. Everything in the analysis is computed from this table.</td></tr>
+<tr><td>engine_benchmark (this document)</td><td>one engine</td><td>reach measures, weight, inclusion decision</td><td>Justifies the engine mix and allows re-weighting.</td></tr></table>
+<h3>4.2 How the answers were collected</h3>
+<table><tr><th>Collection method</th><th>What it is</th><th>Share of answers so far</th></tr>
+<tr><td>single_chat</td><td>One question in a fresh chat on the engine's own app or site</td><td>57 of 238 (24%)</td></tr>
+<tr><td>batched_chat</td><td>Several questions asked one after another in one chat, then split by question</td><td>141 of 238 (59%)</td></tr>
+<tr><td>api</td><td>Gemini answers obtained through the API</td><td>40 of 238 (17%)</td></tr></table>
+<p>All three are real engine outputs and all are used. The method is stored as a variable and tested: it has no significant effect on how often Sephora India is named (chi-square p = 0.67, and p = 1.0 inside ChatGPT alone), and the Nykaa lead is the same in single chats alone (55% vs 13%). The D4 model keeps it as a control.</p>
+<h3>4.3 Why this data supports the analysis</h3>
+<table><tr><th>Hypothesis</th><th>Needs</th><th>Provided by</th></tr>
+<tr><td>H1 Nykaa named more than Sephora</td><td>Same answers scored for both retailers</td><td>Answer text, unbranded questions only, paired test</td></tr>
+<tr><td>H2 retailer vs product questions</td><td>Question type on every answer</td><td>prompt_panel.intent</td></tr>
+<tr><td>H3 engines differ</td><td>Several engines, same questions</td><td>run_schedule interleave, engine field</td></tr>
+<tr><td>H4 categories differ</td><td>Category on every answer</td><td>prompt_panel.category</td></tr>
+<tr><td>H5 links go to Nykaa</td><td>Source links saved with the answer</td><td>citation URLs, domain matching</td></tr>
+<tr><td>H6 repeat runs differ</td><td>Same question and engine repeated</td><td>run_no, repeated schedule slots, Jaccard overlap of cited sites</td></tr></table>
+<h3>4.4 Quality controls, versioning and responsible use</h3>
+<ul>
+<li><b>Controls:</b> a validation script checks required fields, run IDs, prompt IDs, engines and status values; duplicate answers are removed by text hash; representativeness (planned vs collected engine mix) and collector and method bias are re-checked on the cleaned data in the notebook.</li>
+<li><b>Versioning:</b> each data release is tagged (this one is data-v0.9); the notebook reads the same CSV files that are in the submission, so restart-and-run-all reproduces every figure.</li>
+<li><b>Not collected:</b> synthetic or reference text that is not a real engine output is never loaded into the log.</li>
+<li><b>Privacy:</b> questions are generic shopper questions; no personal data is stored. Accounts were our own.</li>
+<li><b>Platform terms:</b> the 40 Gemini API answers were collected through the API rather than the app; this is recorded in the collection method so it can be analysed or removed. Terms of the engines and of sephora.in and nykaa.com are being reviewed for the full collection.</li>
+<li><b>AI-use disclosure:</b> Claude was used to build the sheet, scripts and notebook and to draft text; the team reviewed the outputs.</li></ul>
+<h3>4.5 Next data steps (later, on the updated data)</h3>
+<p>Fill the remaining 362 planned runs (mainly Saurav's and Agnik's Google AI Mode runs), add the Google Trends baseline, and re-run the notebook; no code changes are needed.</p>
+
+<h2>References and sources</h2>
+<p class="src">
+<b>Secondary research sources (accessed 28 October 2026)</b><br>
+[1] Momentic Marketing, "Top AI Chatbots by Market Share", India table, citing Similarweb web visits, September 2026. https://momenticmarketing.com/blog/top-ai-chatbots<br>
+[2] Digit, "ChatGPT vs Claude vs Gemini: Who is winning the AI war in India in 2026?", 17 June 2026, citing Sensor Tower State of AI 2026. https://www.digit.in/features/general/chatgpt-vs-claude-vs-gemini-who-is-winning-the-ai-war-in-india-in-2026.html/amp/<br>
+[3] StatCounter Global Stats, AI chatbot market share, India, September 2026. https://gs.statcounter.com/ai-chatbot-market-share/all/india<br>
+[4] NielsenIQ, "Agentic Commerce India 2026", fielded August 2026. https://nielseniq.com/global/en/insights/report/2026/agentic-commerce-india-2026/<br>
+
+[5] MediaNama, "Nykaa partners with OpenAI for conversational shopping", 17 June 2026. https://www.medianama.com/2026/06/223-nykaa-openai-conversational-shopping-beauty-fashion/<br>
+[6] Google India, "India's Year in Search 2025: the A to Z of trending searches". https://blog.google/intl/en-in/products/explore-communicate/indias-year-in-search-2025-the-a-to-z-of-trending-searches/<br>
+[7] YouGov (2022) chart "Consumers in India are most likely to find chatbots useful while buying cosmetics and beauty products online", via Statista/Datawrapper. https://datawrapper.dwcdn.net/2UHZU/2<br>
+<b>Literature</b><br>
+Aggarwal, P., et al. (2024). GEO: Generative Engine Optimization. Proceedings of KDD 2024. https://arxiv.org/abs/2311.09735<br>
+Allouah, A., Besbes, O., Figueroa, J. D., Kanoria, Y., &amp; Kumar, A. (2025). What Is Your AI Agent Buying? Evaluation, Biases, Model Dependence, and Emerging Implications for Agentic E-Commerce (ACES). arXiv:2508.02630 (v3, December 2025).<br>
+Bansal, G., et al. (2025). Magentic Marketplace: An Open-Source Environment for Studying Agentic Markets. Microsoft Research technical report MSR-TR-2025-50; arXiv:2510.25779.<br>
+Martinez (2026). Optimizing Visibility in Generative Engines: A Critical Survey of Generative Engine Optimization (2023 to 2026). arXiv:2607.14035 (preprint).<br>
+Google Search Central (2026). Google's guide to optimizing for generative AI features on Google Search. https://developers.google.com/search/docs/fundamentals/ai-optimization-guide<br>
+Sephora (2026, March 24). Sephora App in ChatGPT Brings a New Personalized Beauty Experience. https://newsroom.sephora.com/sephora-app-in-chatgpt-brings-a-new-personalized-beauty-experience/<br>
+Reliance Industries Limited (2023, November 3). Sephora ties up with Reliance Retail Ventures Limited to transform India's prestige beauty retail segment. https://www.ril.com/news-media/press-releases/sephora-ties-rrvl-transform-indias-prestige-beauty-retail-segment<br>
+Cited Index (2026). Best Skincare &amp; Beauty in AI Search India, August 2026. https://www.getcited.in/cited-index/skincare-beauty<br>
+AccessAegis (2026, August 29). AI Visibility in India: 2026 Brand Study. https://accessaegis.com/research/ai-visibility-india-2026/</p>
+</body></html>

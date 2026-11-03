@@ -1,0 +1,41 @@
+prompt_id,base_id,language,category,intent,prompt_text,brand_named_in_prompt,include_in_primary_unbranded,freeze_status,drift_wave
+B01E,B01,en,sunscreen,need,Which sunscreen is best for oily skin in Indian summers with no white cast?,no,yes,DRAFT - team review required,no
+B01H,B01,hinglish,sunscreen,need,Oily skin ke liye Indian garmi mein kaunsa sunscreen best hai jo white cast na chhode?,no,yes,DRAFT - team review required,no
+B02E,B02,en,sunscreen,budget,Suggest a good SPF 50 sunscreen under 800 rupees for daily use.,no,yes,DRAFT - team review required,no
+B02H,B02,hinglish,sunscreen,budget,Daily use ke liye 800 rupaye ke andar ek achha SPF 50 sunscreen suggest karo.,no,yes,DRAFT - team review required,yes
+B03E,B03,en,sunscreen,shortlist,Give me a shortlist of 5 sunscreens for sensitive skin available online in India.,no,yes,DRAFT - team review required,yes
+B03H,B03,hinglish,sunscreen,shortlist,India mein online milne wale sensitive skin ke liye 5 sunscreens ki shortlist do.,no,yes,DRAFT - team review required,yes
+B04E,B04,en,acne_skincare,need,What should I use for acne-prone skin and open pores? Suggest a routine with products I can buy in India.,no,yes,DRAFT - team review required,no
+B04H,B04,hinglish,acne_skincare,need,Acne aur open pores wali skin ke liye kya use karun? India mein milne wale products ke saath routine batao.,no,yes,DRAFT - team review required,yes
+B05E,B05,en,acne_skincare,budget,Best moisturiser for oily acne-prone skin under 1000 rupees?,no,yes,DRAFT - team review required,no
+B05H,B05,hinglish,acne_skincare,budget,Oily acne-prone skin ke liye 1000 rupaye ke andar best moisturiser kaunsa hai?,no,yes,DRAFT - team review required,no
+B06E,B06,en,acne_skincare,shortlist,Shortlist 5 serums for pigmentation and dark spots with niacinamide or vitamin C that I can buy in India.,no,yes,DRAFT - team review required,no
+B06H,B06,hinglish,acne_skincare,shortlist,Pigmentation aur dark spots ke liye niacinamide ya vitamin C wale 5 serums batao jo India mein mil jayein.,no,yes,DRAFT - team review required,yes
+B07E,B07,en,foundation,need,Which foundation suits medium to deep Indian skin tones with a neutral undertone?,no,yes,DRAFT - team review required,yes
+B07H,B07,hinglish,foundation,need,Medium se deep Indian skin tone aur neutral undertone ke liye kaunsa foundation sahi rahega?,no,yes,DRAFT - team review required,no
+B08E,B08,en,foundation,budget,Best full-coverage concealer for dark circles on Indian skin under 1500 rupees.,no,yes,DRAFT - team review required,no
+B08H,B08,hinglish,foundation,budget,Indian skin par dark circles ke liye 1500 rupaye ke andar best full-coverage concealer kaunsa hai?,no,yes,DRAFT - team review required,no
+B09E,B09,en,foundation,shortlist,Give me 5 foundations with the widest shade range available in India.,no,yes,DRAFT - team review required,yes
+B09H,B09,hinglish,foundation,shortlist,India mein sabse zyada shades wale 5 foundations ki list do.,no,yes,DRAFT - team review required,no
+B10E,B10,en,lipstick,need,Which lipstick shades look good on wheatish skin for an Indian wedding?,no,yes,DRAFT - team review required,no
+B10H,B10,hinglish,lipstick,need,Shaadi ke liye wheatish skin par kaunse lipstick shades achhe lagte hain?,no,yes,DRAFT - team review required,yes
+B11E,B11,en,lipstick,budget,Best long-lasting matte lipstick under 1000 rupees in India.,no,yes,DRAFT - team review required,no
+B11H,B11,hinglish,lipstick,budget,India mein 1000 rupaye ke andar sabse long-lasting matte lipstick kaunsa hai?,no,yes,DRAFT - team review required,no
+B12E,B12,en,lipstick,shortlist,Shortlist 5 premium lipsticks worth buying as a gift in India.,no,yes,DRAFT - team review required,no
+B12H,B12,hinglish,lipstick,shortlist,Gift dene ke liye 5 premium lipsticks ki shortlist batao jo India mein milte hain.,no,yes,DRAFT - team review required,no
+B13E,B13,en,fragrance,need,Which perfume lasts all day in humid weather and is suitable for office?,no,yes,DRAFT - team review required,yes
+B13H,B13,hinglish,fragrance,need,Humid mausam mein poora din chalne wala aur office ke liye sahi perfume kaunsa hai?,no,yes,DRAFT - team review required,no
+B14E,B14,en,fragrance,budget,Best perfumes under 3000 rupees for women in India.,no,yes,DRAFT - team review required,no
+B14H,B14,hinglish,fragrance,budget,India mein women ke liye 3000 rupaye ke andar best perfumes kaunse hain?,no,yes,DRAFT - team review required,no
+B15E,B15,en,fragrance,shortlist,Shortlist 5 niche or luxury fragrances that are officially sold in India.,no,yes,DRAFT - team review required,yes
+B15H,B15,hinglish,fragrance,shortlist,India mein officially bikne wale 5 niche ya luxury fragrances ki shortlist do.,no,yes,DRAFT - team review required,yes
+B16E,B16,en,haircare,need,What products help with hair fall and frizz in humid weather? Suggest products available in India.,no,yes,DRAFT - team review required,no
+B16H,B16,hinglish,haircare,need,Humid mausam mein hair fall aur frizz ke liye kaunse products help karte hain? India mein milne wale batao.,no,yes,DRAFT - team review required,yes
+B17E,B17,en,haircare,budget,Best sulphate-free shampoo and conditioner under 1200 rupees in India.,no,yes,DRAFT - team review required,no
+B17H,B17,hinglish,haircare,budget,India mein 1200 rupaye ke andar best sulphate-free shampoo aur conditioner kaunsa hai?,no,yes,DRAFT - team review required,no
+B18E,B18,en,haircare,shortlist,Shortlist 5 hair masks for dry damaged hair that I can order online in India.,no,yes,DRAFT - team review required,yes
+B18H,B18,hinglish,haircare,shortlist,Dry damaged hair ke liye 5 hair masks batao jo India mein online order ho sakein.,no,yes,DRAFT - team review required,no
+B19E,B19,en,retailer,where_to_buy,Where is the best place to buy authentic premium beauty products online in India?,no,yes,DRAFT - team review required,yes
+B19H,B19,hinglish,retailer,where_to_buy,India mein authentic premium beauty products online kahan se kharidna sabse achha rahega?,no,yes,DRAFT - team review required,no
+B20E,B20,en,retailer,compare,"Compare Sephora India and Nykaa for premium beauty shopping: range, authenticity, offers and delivery.",yes,no,DRAFT - team review required,yes
+B20H,B20,hinglish,retailer,compare,"Premium beauty shopping ke liye Sephora India aur Nykaa ko compare karo: range, authenticity, offers aur delivery.",yes,no,DRAFT - team review required,no

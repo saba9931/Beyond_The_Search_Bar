@@ -1,0 +1,124 @@
+# Configuration for one study. Everything that is specific to this dataset lives HERE, not in the code.
+# To run the same pipeline on another dataset (another brand, another industry), copy this file
+# and change: paths, columns, entities, focal/comparator, hypotheses and narrative.
+# All paths are relative to the repository root, so the same file works on any computer.
+
+project: "Beyond the Search Bar: beauty and skincare, India (pilot: Sephora India)"
+data_version: "data-v0.9"
+seed: 42
+
+paths:
+  raw_workbook: data/raw/runs_TEAM_shared_v7.xlsx
+  response_log: data/processed/response_log.csv
+  prompt_panel: data/design/prompt_panel_v2.csv
+  run_schedule: data/design/run_schedule.csv
+  output_dir: outputs
+  log_dir: logs/runs
+
+# Names of the columns the code relies on (change these if your file uses other names).
+columns:
+  record_id: run_id
+  prompt_id: prompt_id
+  text: full_response_text
+  urls: citation_urls
+  status: response_status
+  engine: engine
+  category: category
+  intent: intent
+  collector: collector
+  method: collection_method
+
+# Step 1 (ingest): how the shared collection workbook becomes response_log.csv
+ingest:
+  response_sheet: response_log
+  settings_sheet: settings
+  join_keys: [collector, engine]
+  drop_columns: [prompt_text]
+  drop_column_suffix: "(auto)"
+  fresh_chat_by_status: {valid: "yes", contaminated: "no", api_run: "n/a"}
+  method_by_status: {valid: single_chat, contaminated: batched_chat, api_run: api}
+  rename: {run_date: run_datetime_ist}
+
+# Step 2 (validate): checks that must pass before any analysis is run
+schema:
+  response_log_required: [run_id, prompt_id, engine, run_no, collector, response_status, full_response_text, collection_method]
+  key_columns_not_blank: [run_id, prompt_id, engine, response_status]
+  panel_required: [prompt_id, category, intent, include_in_primary_unbranded]
+  schedule_required: [run_id, prompt_id, engine]
+
+statuses:
+  genuine: [valid, contaminated, api_run]     # every genuine answer is used; method is tested as a bias, not used to drop rows
+  allowed: [valid, contaminated, api_run]     # anything else is reported as an error
+
+# The brands/retailers we look for in the text (plain regular expressions, so anyone can check them)
+entities:
+  sephora: {label: "Sephora India", short: "Sephora", pattern: 'sephora', domain: 'sephora.'}
+  nykaa:   {label: "Nykaa",         short: "Nykaa",   pattern: 'nykaa',   domain: 'nykaa.'}
+  tira:    {label: "Tira",          short: "Tira",    pattern: '\btira\b', domain: 'tirabeauty.'}
+  purplle: {label: "Purplle",       short: "Purplle", pattern: 'purplle', domain: 'purplle.'}
+  amazon:  {label: "Amazon",        short: "Amazon",  pattern: 'amazon',  domain: 'amazon.'}
+  myntra:  {label: "Myntra",        short: "Myntra",  pattern: 'myntra',  domain: 'myntra.'}
+focal: sephora
+comparator: nykaa
+
+analysis:
+  primary_filter: {column: include_in_primary_unbranded, value: "yes"}   # drop prompts that name the brands themselves
+  question_type:
+    column: intent
+    retailer_values: [where_to_buy]
+    labels: {retailer: "retailer question", other: "product question"}
+  product_only_exclude: {column: category, value: retailer}              # H4 is repeated without the retailer category
+  engine_labels: {chatgpt: ChatGPT, google_ai_mode: "Google AI Mode", gemini: Gemini, claude: Claude, perplexity: Perplexity}
+  bias_check_engine: chatgpt                                              # an engine that has both single and batched chats
+  single_method_value: single_chat
+  repeat_min_runs: 2
+  plan_share_by: engine
+
+# Hypotheses are written here BEFORE the charts. The notebook and the report read them from this file.
+hypotheses:
+  - {id: H1, statement: "In unbranded prompts, Nykaa is named in a larger share of answers than Sephora India", question: "Are we behind the main competitor in AI answers?", test: "Paired McNemar test, same answer", expected: "Nykaa higher"}
+  - {id: H2, statement: "Sephora India is named more often when the shopper asks where to buy (a retailer question) than when they ask for a product (need, budget or shortlist question)", question: "Is our visibility a retailer problem or a product problem?", test: "Fisher exact test (small retailer-question count); chi-square also reported", expected: "retailer questions higher"}
+  - {id: H3, statement: "Sephora India mention rate differs by AI engine", question: "Which engine should we fix first?", test: "Chi-square across engines", expected: "differences exist"}
+  - {id: H4, statement: "Sephora India mention rate differs by category, and is higher for fragrance and premium items than for haircare", question: "Where is our strongest and weakest category?", test: "Chi-square across categories", expected: "differences exist"}
+  - {id: H5, statement: "When an answer links to a retailer, it links to Nykaa more often than to Sephora India", question: "Do AI engines send traffic to us or to competitors?", test: "Paired McNemar test on links", expected: "Nykaa higher"}
+  - {id: H6, statement: "The same prompt on the same engine gives different cited sources across repeat runs (overlap below 1)", question: "Can we trust one answer as the truth, and how many runs do we need?", test: "Jaccard overlap of cited domains", expected: "overlap well below 1"}
+
+# Analyst wording. Numbers inside {braces} are filled in by the code from the results.
+narrative:
+  title: "D3 EDA: Does Sephora India show up in AI shopping answers?"
+  team: "Team L: Saba Gul, Saurav Kumar, Agnik Majumder"
+  decision: "Sephora India's marketing and digital team must decide which content and product-feed fixes to make first so that AI shopping assistants name and link Sephora India when shoppers ask for beauty products."
+  question: "In our panel of AI answers, how often are Sephora India and Nykaa named and linked, and does this change by engine, question type, product category or repeat run?"
+  status: "Part submission. All genuine collected answers are used (single chats, batched chats and API runs). The collection method is tracked as a variable and tested for bias, not used to throw rows away. This is a live project on a real company, so the sample keeps growing."
+  honest_limit: "This is an exploration of a manual sample. It does not prove what real shoppers see, and it has no sales data."
+  so_what:
+    H1: "The first goal is to be named at all in product answers, not to win the retailer comparison."
+    H2: "Sephora shows up when shoppers ask WHERE to buy and rarely when they ask WHAT to buy. Fixes should target product-answer visibility (product pages, feeds, reviews), not brand pages."
+    H3: "Engines differ. {best} names Sephora most; {worst} least. Weight the fixes by engine usage (see the benchmarking note) and re-check on the updated data."
+    H4: "Apart from the retailer category, Sephora is weak across product categories, including its core ones. Treat it as a general product-answer problem until more data shows a category pattern."
+    H5: "When engines send shoppers to a retailer, it is usually Nykaa. This is the traffic side of the visibility gap."
+    H6: "One answer is not the truth. Cited sites change between runs, so any monitor needs several runs per prompt."
+    Bias: "Mix is closer to the plan than before but Saurav's rows and part of Agnik's Google AI Mode rows are still to come. Results are re-run when the data is updated."
+    Robust: "The direction does not depend on the collection method. Collection method has no significant effect on Sephora mentions ({method_p}; inside {bias_engine} alone {engine_p}), so batched and API answers stay in. Method is kept as a control variable in D4."
+  confidence:
+    H1: "High: large gap, Nykaa ahead on {ahead} of {n_engines} engines, also in single fresh chats alone (Fig 9)"
+    H2: "Medium: only {n_retailer_q} retailer-question answers"
+    H3: "Medium: engine cells are small ({min_cell} to {max_cell}) and collection method differs by engine"
+    H4: "Low: 20 to 40 answers per category, wide intervals"
+    H5: "Medium: depends on which engines show links at all"
+    H6: "Medium: few repeat pairs per engine"
+    Bias: "High (a fact about our sample)"
+    Robust: "Medium-high"
+  d4_notes:
+    - "Outcome to model: Sephora named (yes/no) per answer. About 10% are positive, so use stratified folds and report precision-recall, not accuracy."
+    - "Inputs: question type, category, engine, collection method, early position in the answer."
+    - "All runs of one prompt stay in the same train or test fold, because repeat runs of a prompt are not independent."
+    - "Only a few retailer-question answers exist, so model product questions first and add where-to-buy when more data arrives."
+  limits:
+    - "Part submission: the analysis is re-run when the data is updated. Collected with our own accounts; AI answers change with model versions."
+    - "Engine mix differs from the popularity weights in the plan; the engine and category cells are small, so p-values there are indicative."
+    - "The question-type test rests on a small number of retailer-question answers."
+    - "Rules count the retailer name, not the quality of the recommendation. A brand sold at Sephora is not counted as Sephora."
+    - "Product-only answers rarely name a retailer, so mention rates are low for every retailer. Compare retailers, not absolute levels."
+    - "Gemini API answers and batched chats were collected differently from single chats; the method check shows no significant effect."
+    - "No sales or traffic data: we cannot say what a mention is worth in rupees."
